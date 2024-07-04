@@ -1,0 +1,40 @@
+server:
+    servlet:
+        context-path: /
+    port: ${PORT:8080}
+
+spring:
+    application:
+        name: orders
+
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://34.175.164.238:3308/OrdersDB
+        username: orders
+        password: orders
+
+    jpa:
+        database-platform: org.hibernate.dialect.MySQLDialect
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+
+cart:
+    api:
+        url-local: http://localhost:8081
+        base-url: https://cart-workshop-6scgqhxaoa-uc.a.run.app
+        cart-uri: /carts/
+
+catalog:
+    api:
+        base-url: https://catalog-workshop-yequy5sv5a-uc.a.run.app
+        product-uri: /catalog/products/{id}
+        stock-uri: /catalog/products/newStock/{id}/quantity?quantity={quantity}
+
+users:
+    api:
+        base-url: https://user-microservice-ey3npq3qvq-uc.a.run.app
+        users-uri: /users/{id}
+        country-uri: /country/{id}
+        fidelity-uri: /fidelitypoints/{id}
+

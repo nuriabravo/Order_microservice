@@ -1,0 +1,35 @@
+server:
+  port: 8089
+
+cart:
+  api:
+    base-url: ${CART_API_BASE_URL:http://localhost:8081}
+    cart-uri: /carts/
+
+catalog:
+  api:
+    base-url: ${CATALOG_API_BASE_URL:http://localhost:8082}
+    product-uri: /catalog/products/{id}
+    stock-uri: /catalog/products/{id}/newStock?quantity={quantity}
+    stock2-uri: /products/{id}/{quantity}
+
+users:
+  api:
+    base-url: ${USERS_API_BASE_URL:http://localhost:8083}
+    users-uri: /users/{id}
+    country-uri: /country/{id}
+    fidelity-uri: /fidelitypoints/{id}
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
